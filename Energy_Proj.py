@@ -320,11 +320,13 @@ scen = pd.read_csv("/Users/christianabys/Desktop/School/Boston_University/2020/e
 #percent qualified greater than 80
 i_80 = solar_mass['percent_qualified'].gt(80)
 solar_mass_pq_80 = solar_mass[i_80]
+solar_mass_pq_80 = solar_mass_pq_80[~solar_mass_pq_80['town'].isin(['BELCHERTOWN', 'PELHAM','RICHMOND','WESTBOROUGH','WAYLAND','STURBRIDGE'])]
 total_solar_pq_80_carbon = solar_mass_pq_80['carbon_offset_metric_tons'].sum()
 total_solar_pq_80_kwh = solar_mass_pq_80['kw_total'].sum()
-solar_mass_pq_80[['kw_total_10_p']] = solar_mass_pq_80['kw_total'] * .1
+solar_mass_pq_80[['kw_total_10_p']] = solar_mass_pq_80['kw_total'] 
 solar_mass_pq_80_10_p = solar_mass_pq_80['kw_total_10_p'].sum()
-solar_mass_pq_80_10_p
+total_solar_pq_80_kwh /1000
+total_solar_pq_80_carbon
 
 
 # In[251]:
